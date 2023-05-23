@@ -40,34 +40,23 @@ import java.util.List;
 public class ExploreActivity extends AppCompatActivity {
     private static final int LOCATION_PERMISSION_REQUEST_CODE = 100;
     Button explore;
-    TextView wifi_name;
     Spinner source, dest;
-//    WifiManager wifiManager;
     int curFloor;
     int selectedLevel=0;
     boolean scanDone=false;
     String []places = {"Service",
-            "GA",
-            "BT HOD Cabin",
-            "LH210",
-            "LH211",
-            "LH212",
-            "Dept. of PE",
-            "BT Staffroom",
-            "Biokinetics Lab",
-            "Instrumentation and Project Lab"};
-//            , "LH306", "LH308", "LH309", "LH310", "LH311", "LH312", "EC Staffroom",
-//            "CS Staffroom", "Texas Instruments Lab", "CSL01", "CSL02",
-//            "CSL03", "CSL04", "CSL05", "CSL06", "CSL07", "CSL05", "CS HOD Cabin",
-//            "CS Staffrom 4th Floor", "ISL01", "ISL02", "ISL03", "Project and Research Lab PG",
-//            "LH500", "LH501", "LH502", "LH503", "LH504", "LH505", "LH506", "CSE Library", "CSL08",
-//            "CFR03", "CS Staffrom 5th Floor"};
+            "Grand amphi",
+            "Administration",
+            "Internat filles",
+            "Amphi3 & Salles L3x",
+            "Amphi4 & salles L2x",
+            "Terrains sports",
+            "Amphi4 & salles L2x",
+            "Terrain gazoné",
+            "Amphi4 & salles L2x",
+            "Service internat"
+    };
     int []placesLevels={2,2,2,2,2,2,2,2,2,2,3,3,3,3,3,3,3,3,3,4,4,4,4,4,4,4,4,4,4,4,4,4,5,5,5,5,5,5,5,5,5,5,5,5};
-//    List <String> wifi=new ArrayList<>(Arrays.asList("AndroidAP","Redmi7"));
-//    List<String> wifi2 = new ArrayList<>(Arrays.asList("BT-STUDENT","BT-STAFF"));
-//    List<String> wifi3 = new ArrayList<>(Arrays.asList("LH310-WiFi","LH312-WiFi","CCPLAB-WiFi"));
-//    List<String> wifi4 = new ArrayList<>(Arrays.asList("CS STUDENT","ECSTAFF-WiFi"));
-//    List<String> wifi5 = new ArrayList<>(Arrays.asList("ADALAB","BT-STAFF","CCPLAB-WiFi"));
 
     Location src=null,desti=null;
     Location newSrc;
@@ -97,38 +86,6 @@ public class ExploreActivity extends AppCompatActivity {
         source.setAdapter(sourceAdapter);
         ArrayAdapter<String> destAdapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, places);
         dest.setAdapter(destAdapter);
-
-//        wifi_name=findViewById(R.id.wifi_name);
-//        checkLocation();
-
-        //wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
-
-//        BroadcastReceiver wifiScanReceiver = new BroadcastReceiver() {
-//            @Override
-//            public void onReceive(Context c, Intent intent) {
-//                boolean success = intent.getBooleanExtra(
-//                        WifiManager.EXTRA_RESULTS_UPDATED, false);
-//                if (success) {
-//                    scanSuccess();
-//                } else {
-//                    Toast.makeText(getApplicationContext(), "WiFi scan failed!", Toast.LENGTH_SHORT).show();
-//                }
-//            }
-//        };
-
-//        IntentFilter intentFilter = new IntentFilter();
-//        intentFilter.addAction(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION);
-//        getApplicationContext().registerReceiver(wifiScanReceiver, intentFilter);
-//
-//        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-//            ActivityCompat.requestPermissions(this,
-//                    new String[]{Manifest.permission.ACCESS_FINE_LOCATION},
-//                    LOCATION_PERMISSION_REQUEST_CODE);
-//        }
-//        else{
-//            wifiManager.startScan();
-//
-//        }
 
         source.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -205,7 +162,6 @@ public class ExploreActivity extends AppCompatActivity {
             });
         }
 
-        // ToDo: set selected_pill floor button by nearest WiFi name
     }
 
     private void replaceFragment(Fragment f) {
@@ -224,89 +180,16 @@ public class ExploreActivity extends AppCompatActivity {
                     LOCATION_PERMISSION_REQUEST_CODE);
             return;
         }
-
-        Button myButton = findViewById(R.id.pill1);
-        if(myButton.isSelected()){
-            curFloor= 2;
-        }
-        else{
-//            curFloor=3;
-            curFloor=2;
-        }
-//        List<ScanResult> results = wifiManager.getScanResults();
-//        if(!results.isEmpty()){
-//            wifi_name.setText(results.get(0).SSID);
-//        }
-//        Collections.sort(results, new Comparator<ScanResult>() {
-//            @Override
-//            public int compare(ScanResult sr1, ScanResult sr2) {
-//                return Integer.compare(sr2.level, sr1.level);
-//            }
-//        });
-//        int n=3;
-//        if(results.toArray().length<3)
-//            n=results.toArray().length;
-//        int []floor={0,0,0,0,0,0};
-//        for(int i=0;i<n;i++)
-//        {
-//            String item=results.get(i).SSID;
-//            if (wifi2.contains(item)) {
-//                floor[2]++;
-//            }
-//            if (wifi3.contains(item)) {
-//                floor[3]++;
-//            }
-//            if (wifi4.contains(item)) {
-//                floor[4]++;
-//            }
-//            if (wifi5.contains(item)) {
-//                floor[5]++;
-//            }
-//        }
-
-//        for (int i = 1; i < floor.length; i++) {
-//            if (floor[i] >floor[curFloor]) {
-//                curFloor = i;
-//            }
-//        }
-//        Toast.makeText(this,"CURRENT -FLOOR ="+ curFloor, Toast.LENGTH_SHORT).show();
-//        ScanResult bestSignal = null;
-//        for (ScanResult result : results) {
-//            if (bestSignal == null || WifiManager.compareSignalLevel(bestSignal.level, result.level) < 0) {
-//                bestSignal = result;
-//            }
-//        }
-//        if (bestSignal != null) {
-//            String ssid = bestSignal.SSID;
-//            String bssid = bestSignal.BSSID;
-//            int signalStrength = WifiManager.calculateSignalLevel(bestSignal.level, 100);
-////            String message = String.format("The nearest Wi-Fi network is %s (%s) with a signal strength of %d%%.", ssid, bssid, signalStrength);
-//            wifi_name.setText("Floor : "+curFloor);
-//            if(curFloor==0)
-//                curFloor=2;
+        curFloor= 2;
             Bundle bundle = new Bundle();
             bundle.putInt("level",curFloor);
             Floor f=new Floor();
             f.setArguments(bundle);
-//            wifi_name.setText("Level: "+curFloor);
             FragmentManager fm = getSupportFragmentManager();
             FragmentTransaction ft = fm.beginTransaction();
             ft.replace(R.id.frame,f);
             ft.commit();
             pills[selectedLevel-2].setBackgroundResource(R.drawable.selected_pill);
-////        }
-//        else{
-//            wifi_name.setText("Floor : "+curFloor);
-//            setRoute(src,desti);
-//            Bundle bundle = new Bundle();
-//            bundle.putInt("level",2);
-//            Floor f=new Floor();
-//            f.setArguments(bundle);
-//            FragmentManager fm = getSupportFragmentManager();
-//            FragmentTransaction ft = fm.beginTransaction();
-//            ft.replace(R.id.frame,f);
-//            ft.commit();
-//        }
 
         scanDone=true;
     }
@@ -326,25 +209,6 @@ public class ExploreActivity extends AppCompatActivity {
         }
     }
 
-    private void checkLocation(){
-        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        boolean isLocationEnabled = locationManager.isLocationEnabled();
-
-        if(isLocationEnabled)
-            return;
-
-        AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setMessage("This app requires location services to function properly. Please enable location services in your device settings.")
-                .setCancelable(false)
-                .setPositiveButton("Settings", (dialog, id) -> {
-                    Intent intent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-                    startActivity(intent);
-                })
-                .setNegativeButton("Cancel", (dialog, id) -> dialog.cancel());
-        AlertDialog alert = builder.create();
-        alert.show();
-    }
-
     private void makeLocations() {
         {
             String[] places = {
@@ -361,7 +225,7 @@ public class ExploreActivity extends AppCompatActivity {
             Location node0 = new Location("Balcony", new ArrayList<String>(Arrays.asList("Balcony", places[4], places[1])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomLeft, PlacePosition.topLeft)),R.drawable.three0, 3, false, 180f, null, null, null, null, null);
             Location node1 = new Location("Internat Garçon", new ArrayList<String>(Arrays.asList(places[6], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right)), R.drawable.three1, 3, false, 0f, null, null, null, null, null);
             Location node2 = new Location("LH311", new ArrayList<String>(Arrays.asList(places[5], places[8])), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.bottomLeft)), R.drawable.three2, 3, false, 0f, null, null, null, null, null);
-            Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[3], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.right)), R.drawable.three3, 3, false, 0f, null, null, null, null, null);
+            Location node3 = new Location("Salles TPs", new ArrayList<String>(Arrays.asList(places[3], "Salles TPs")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.right)), R.drawable.three3, 3, false, 0f, null, null, null, null, null);
             Location node4 = new Location("TI Lab", new ArrayList<String>(Arrays.asList(places[9], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.bottomRight)), R.drawable.three4, 3, false, 45f, null, null, null, null, null);
             Location node5 = new Location("LH306", new ArrayList<String>(Arrays.asList(places[0], places[7])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)), R.drawable.three4, 3, false, 135f, null, null, null, null, null);
             Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs1, 3, true, 0f, null, null, null, null, null);
@@ -379,20 +243,20 @@ public class ExploreActivity extends AppCompatActivity {
                     "Internat Garçon",
                     "LH302",
                     "Service",
-                    "GA",
-                    "BT HOD Cabin",
-                    "LH210",
-                    "LH211",
-                    "LH212",
-                    "Dept. of PE",
-                    "BT Staffroom",
-                    "Biokinetics Lab",
+                    "Grand amphi",
+                    "Administration",
+                    "Internat filles",
+                    "Amphi3 & Salles L3x",
+                    "Amphi4 & salles L2x",
+                    "Terrains sports",
+                    "Amphi4 & salles L2x",
+                    "Terrain gazoné",
                     "I&P Lab"};
             Location node0 = new Location(
                     "Balcony",
                     new ArrayList<String>(Arrays.asList(places[5], places[8])),
                     new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.topRight)),
-                    R.drawable.second0,
+                    R.drawable.agora,
                     2,
                     false,
                     180f,
@@ -401,14 +265,50 @@ public class ExploreActivity extends AppCompatActivity {
                     null,
                     null,
                     null);
-            Location node1 = new Location("LH212", new ArrayList<String>(Arrays.asList(places[7], "StaffRoom", "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right, PlacePosition.bottomRight)),R.drawable.second1 , 2, false, 0f, null, null, null, null, null);
-            Location node2 = new Location("LH211", new ArrayList<String>(Arrays.asList(places[6], "StaffRoom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight, PlacePosition.left)),R.drawable.second2, 2, false, 0f, null, null, null, null, null);
-            Location node3 = new Location("Washroom", new ArrayList<String>(Arrays.asList(places[4], places[10], "Washroom")), new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight, PlacePosition.bottomRight, PlacePosition.right)), R.drawable.second3, 2, false, 45f, null, null, null, null, null);
-            Location node4 = new Location("GA", new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])), new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.topLeft, PlacePosition.right)), R.drawable.second4, 2, false, 135f, null, null, null, null, null);
-//            Location node5 = new Location("Batiment A", new ArrayList<String>(), new ArrayList<Integer>(), R.drawable.second4, 2, false, 0f, null, null, null, null, null);
-            Location node5 = new Location("LH306", new ArrayList<String>(Arrays.asList(places[0])), new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)), R.drawable.three4, 3, false, 135f, null, null, null, null, null);
-            Location stairs1 = new Location("Stairs1", new ArrayList<>(), new ArrayList<>(),R.drawable.stairs1, 2, true, 0f, null, null, null, null, null);
-            Location stairs2 = new Location("Stairs2", new ArrayList<>(), new ArrayList<>(), R.drawable.stairs2, 2, true, 0f, null, null, null, null, null);
+            Location node1 = new Location(
+                    "Amphi4 & salles L2x",
+                    new ArrayList<String>(Arrays.asList(places[7], "-", "-")),
+                    new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomLeft, PlacePosition.right, PlacePosition.bottomRight)),
+                    R.drawable.agora ,
+                    2,
+                    false,
+                    0f,
+                    null,
+                    null,
+                    null,
+                    null,
+                    null);
+            Location node2 = new Location(
+                    "Amphi3 & Salles L3x",
+                    new ArrayList<String>(Arrays.asList(places[6], "-")),
+                    new ArrayList<Integer>(Arrays.asList(PlacePosition.bottomRight,
+                            PlacePosition.left)),
+                    R.drawable.agora,
+                    2, false, 0f, null, null, null, null, null);
+            Location node3 = new Location("Salles TPs",
+                    new ArrayList<String>(Arrays.asList(places[4], places[10], "Salles TPs")),
+                    new ArrayList<Integer>(Arrays.asList(PlacePosition.topRight, PlacePosition.bottomRight, PlacePosition.right)),
+                    R.drawable.sallestps,
+                    2, false, 45f, null, null, null, null, null);
+            Location node4 = new Location("Grand amphi",
+                    new ArrayList<String>(Arrays.asList(places[11], places[2], places[3])),
+                    new ArrayList<Integer>(Arrays.asList(PlacePosition.right, PlacePosition.topLeft, PlacePosition.right)),
+                    R.drawable.grand_amphi,
+                    2, false, 135f, null, null, null, null, null);
+            Location node5 = new Location("Internat Garçon",
+                    new ArrayList<String>(Arrays.asList(places[0])),
+                    new ArrayList<Integer>(Arrays.asList(PlacePosition.left, PlacePosition.bottomRight)),
+                    R.drawable.internatgarcon,
+                    2, false, 135f, null, null, null, null, null);
+            Location stairs1 = new Location(
+                    "Stairs1",
+                    new ArrayList<>(),
+                    new ArrayList<>(),
+                    R.drawable.parking,
+                    2, true, 0f, null, null, null, null, null);
+            Location stairs2 = new Location("Stairs2",
+                    new ArrayList<>(), new ArrayList<>(),
+                    R.drawable.agora, 2, true, 0f, null, null, null, null, null);
             node0.setAngle(180);
             node1.setAngle(180);
             stairs1.setAngle(180);
