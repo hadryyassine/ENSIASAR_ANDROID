@@ -25,7 +25,19 @@ public class Location {
     private float downAngle;
     private float angle;
 
-    public Location(String name, ArrayList<String> places,ArrayList<Integer> placePositions, int image, int level, boolean isStairs, float stairsAngle, Location stairs, Location left, Location right, Location front, Location back) {
+    public Location(
+            String name,
+            ArrayList<String> places,
+            ArrayList<Integer> placePositions,
+            int image,
+            int level,
+            boolean isStairs,
+            float stairsAngle,
+            Location stairs,
+            Location left,
+            Location right,
+            Location front,
+            Location back) {
         this.name = name;
         this.places = places;
         this.image = image;

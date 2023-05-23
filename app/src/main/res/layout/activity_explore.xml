@@ -7,34 +7,34 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     android:backgroundTint="#E8FFFFFF">
-    <TextView
-        android:id="@+id/wifi_name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font1"
-        android:text="Scanning WiFi..."
-        android:textColor="#000000"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.54"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022" />
+<!--    <TextView-->
+<!--        android:id="@+id/wifi_name"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:fontFamily="@font/font1"-->
+<!--        android:text="Scanning WiFi..."-->
+<!--        android:textColor="#000000"-->
+<!--        android:textSize="10sp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.54"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.022" />-->
 
-    <ImageView
-        android:id="@+id/wifi_icon"
-        android:layout_width="16dp"
-        android:layout_height="15dp"
-        android:contentDescription="Wif"
-        android:translationX="-5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.374"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.022"
-        app:srcCompat="@drawable/wifi" />
+<!--    <ImageView-->
+<!--        android:id="@+id/wifi_icon"-->
+<!--        android:layout_width="10dp"-->
+<!--        android:layout_height="9dp"-->
+<!--        android:contentDescription="Wif"-->
+<!--        android:translationX="-5dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.374"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.022"-->
+<!--        app:srcCompat="@drawable/wifi" />-->
 
     <androidx.cardview.widget.CardView
         android:id="@+id/dropdown_container"
@@ -202,61 +202,34 @@
             android:layout_width="match_parent"
             android:layout_height="410dp">
 
-            <Button
-                android:id="@+id/pill4"
-                android:layout_width="65dp"
-                android:layout_height="25dp"
-                android:background="@drawable/pill_tab"
-                android:text="Fifth"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.944"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.04" />
 
-            <Button
-                android:id="@+id/pill2"
-                android:layout_width="65dp"
-                android:layout_height="25dp"
-                android:background="@drawable/pill_tab"
-                android:text="Third"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.36"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.04" />
-
-            <Button
-                android:id="@+id/pill3"
-                android:layout_width="65dp"
-                android:layout_height="25dp"
-                android:background="@drawable/pill_tab"
-                android:text="Fourth"
-                android:textAllCaps="false"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.65"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.04" />
+<!--            <Button-->
+<!--                android:id="@+id/pill2"-->
+<!--                android:layout_width="65dp"-->
+<!--                android:layout_height="25dp"-->
+<!--                android:background="@drawable/pill_tab"-->
+<!--                android:text="Second"-->
+<!--                android:textAllCaps="false"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.695"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                app:layout_constraintVertical_bias="0.041" />-->
 
             <Button
                 android:id="@+id/pill1"
                 android:layout_width="65dp"
                 android:layout_height="25dp"
                 android:background="@drawable/pill_tab"
-                android:text="Second"
+                android:text="First"
                 android:textAllCaps="false"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.055"
+                app:layout_constraintHorizontal_bias="0.468"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.04" />
+                app:layout_constraintVertical_bias="0.041" />
 
             <FrameLayout
                 android:id="@+id/frame"
